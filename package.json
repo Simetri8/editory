@@ -1,0 +1,19 @@
+{
+  "name": "editory",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simetri8/editory.git"
+  },
+  "author": "mehmetor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Simetri8/editory/issues"
+  },
+  "homepage": "https://github.com/Simetri8/editory#readme"
+}
