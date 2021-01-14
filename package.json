@@ -63,6 +63,7 @@
 	},
 	"homepage": "https://github.com/Simetri8/editory#readme",
 	"dependencies": {
+		"@flatten-js/core": "^1.2.18",
 		"bluebird": "^3.7.2",
 		"jquery": "^3.5.1",
 		"lodash": "^4.17.20"

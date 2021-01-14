@@ -1,5 +1,7 @@
 import _ from 'lodash';
-import * as Promise from "bluebird";
+import { connect } from 'react-redux';
+import { Promise } from 'bluebird';
+import classNames from 'classnames';
 import jQuery from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -54,6 +56,32 @@ import {
 
 ImageServiceProp.setService(ImageService);
 
+var mapStateToProps = (state) => {
+	return {
+		// isSidebarShown: PageStates.isSideBarShown(state),
+		// sideBarWidth: PageStates.sidebarWidth(state),
+		//isDocumentLoading: PageStates.isDocumentLoading(state),
+		// //activeLoadedDocumentData: PageStates.activeLoadedDocumentData(state),
+		// isSaving: PageStates.isSaving(state),
+		// saveStatus: PageStates.saveStatus(state),
+		// activeDocumentError: PageStates.activeDocumentError(state),
+		// netWorkStatus: PageStates.netWorkStatus(state),
+		// //activeDocumentOverview: PageStates.activeDocumentOverview(state),
+		// itemsBarHide: PageStates.itemsBarHide(state),
+		// isAnonymousUser: PageStates.isAnonymousUser(state),
+		// userGeneralSettings: PageStates.user(state).settings.generalSettings,
+		// isQuickStartReadFromServer: PageStates.isQuickStartReadFromServer(state),
+		// mathTemplates: PageStates.user(state).settings.mathTemplates
+	};
+};
+
+var mapDispatchToProps = {
+	requestSaveStatus: PageDispatches.requestSaveStatus,
+	requestSaveDocument: PageDispatches.requestSaveDocument,
+	setDocumentWidth: PageDispatches.setDocumentWidth,
+	customUser: PageDispatches.customUser,
+	customDocuments: PageDispatches.customDocuments
+};
 
 class MathTypeContainerComponent extends React.Component {
 	constructor(e) {
@@ -540,8 +568,8 @@ class MathTypeContainerComponent extends React.Component {
 				ref={this.handleMathTypeRef}
 				readOnly={this.props.readOnly} //!question.editing
 				isPlainTextOnly={false}
-				onBlur={this.props.onBlur}
-				onFocus={this.props.onFocus}
+			//onBlur={this.props.onBlur}
+			//onFocus={this.props.onFocus}
 			/>
 	}
 	getTopPosition() {
@@ -786,12 +814,10 @@ class MathTypeContainerComponent extends React.Component {
 					</Paper>
 				</Grid>
 				: null}
-
-
 		</React.Fragment>
 	}
 }
 
-//var MathTypeContainer = connect(mapStateToProps, mapDispatchToProps, null, { forwardRef: true })(MathTypeContainerComponent);
+var MathTypeContainer = connect(mapStateToProps, mapDispatchToProps, null, { forwardRef: true })(MathTypeContainerComponent);
 
-export default MathTypeContainerComponent
+export default MathTypeContainer
